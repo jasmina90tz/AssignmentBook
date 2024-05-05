@@ -25,16 +25,16 @@ public class SmokeTestAutomation {
         WebElement loginButton = driver.findElement(By.xpath("//form/mat-card-actions/button"));
         loginButton.click();
 
-        // Wait for the login process to complete (adjust the timeout as needed)
+        // Wait for the login process to complete
         try {
             Thread.sleep(5000); // Wait for 5 seconds
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        // UI Test: Positive User Registration
+        // UI Test: User Registration
         driver.get("https://bookcart.azurewebsites.net/register");
 
-        // Fill the form using JavaScript
+        // Fill the form
         WebElement firstnameInput = driver.findElement(By.id("mat-input-0"));
         WebElement lastnameInput = driver.findElement(By.id("mat-input-1"));
         WebElement userNameInput = driver.findElement(By.id("mat-input-2"));
@@ -54,9 +54,9 @@ public class SmokeTestAutomation {
         WebElement registerButton = driver.findElement(By.xpath("//mat-card-content/form/mat-card-actions/button"));
         registerButton.click();
 
-        // Wait for the form submission to complete (adjust the timeout as needed)
+        // Wait for the form submission to complete
         try {
-            Thread.sleep(5000); // Wait for 5 seconds
+            Thread.sleep(5000);
         } catch (
                 InterruptedException e) {
             e.printStackTrace();
