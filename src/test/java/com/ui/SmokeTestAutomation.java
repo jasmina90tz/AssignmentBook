@@ -22,7 +22,7 @@ public class SmokeTestAutomation {
         passwordInput.sendKeys("Test1234");
 
         // Click on the login button
-        WebElement loginButton = driver.findElement(By.xpath("//form/mat-card-actions/button"));
+        WebElement loginButton = driver.findElement(By.xpath("//mat-card-actions/button"));
         loginButton.click();
 
         // Wait for the login process to complete
@@ -51,7 +51,7 @@ public class SmokeTestAutomation {
         js.executeScript("document.querySelector('input[value=\"Male\"]').click();");
 
         // Click on the register button
-        WebElement registerButton = driver.findElement(By.xpath("//mat-card-content/form/mat-card-actions/button"));
+        WebElement registerButton = driver.findElement(By.xpath("//mat-card-actions/button"));
         registerButton.click();
 
         // Wait for the form submission to complete
