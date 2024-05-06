@@ -5,6 +5,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SmokeTestAutomation {
 
@@ -51,7 +55,12 @@ public class SmokeTestAutomation {
         js.executeScript("document.querySelector('input[value=\"Male\"]').click();");
 
         // Click on the register button
-        WebElement registerButton = driver.findElement(By.xpath("//mat-card-actions/button"));
+        // Wait for the register button to be present in the DOM
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement registerButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//form/mat-card-actions/button")));
+
+// Ensure the register button is visible on the page
+        wait.until(ExpectedConditions.visibilityOf(registerButton));
         registerButton.click();
 
         // Wait for the form submission to complete
