@@ -55,19 +55,18 @@ public class SmokeTestAutomation {
         js.executeScript("document.querySelector('input[value=\"Male\"]').click();");
 
         // Click on the register button
-        // Wait for the register button to be present in the DOM
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement registerButton = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//form/mat-card-actions/button")));
+        //WebElement registerButton = driver.findElement(By.cssSelector("button.mat-mdc-raised-button.mat-primary"));
+        WebElement registerButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.mat-mdc-raised-button.mat-primary")));
 
-// Ensure the register button is visible on the page
+        // Ensure the register button is visible on the page
         wait.until(ExpectedConditions.visibilityOf(registerButton));
         registerButton.click();
 
         // Wait for the form submission to complete
         try {
             Thread.sleep(5000);
-        } catch (
-                InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
